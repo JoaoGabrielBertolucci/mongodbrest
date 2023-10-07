@@ -1,9 +1,14 @@
-# Node.js integrado ao mongodb 😋
+#  🍃 Node.js integrado ao MongoDB
+Projeto desenvolvido para a disciplina de Laboratório de Banco de Dados.
+## 🤖 Membros
+- João Gabriel
+<br>
+- Josué Carvalho
 
-## Membros
-João Gabriel 
-Josué Carvalho
-
-## Pacotes Utilizados
-1. express 
-2. mongondb
+## 📦 Pacotes "npm"
+``` i express
+i mongodb@4.2
+i dotenv
+i pm2 -g
+i nodemon --dev
+i express-validator ´´´

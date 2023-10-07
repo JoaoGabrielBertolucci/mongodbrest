@@ -1,7 +1,7 @@
 {
   "name": "mongodbrest",
   "version": "1.0.0",
-  "description": "Backend mongoDb Com node & Rest",
+  "description": "Backend MongoDB com Node & Rest",
   "main": "api/index.js",
   "type": "module",
   "scripts": {

@@ -7,4 +7,4 @@ db.Politicos.insertOne({
     "Data_Filiação": "2020-01-15",
     "Valor_Ajuda_Mensal": 5000,
     "NumeroUrna": 12345
-  });
+  })

@@ -18,7 +18,7 @@ router.get('/', async(req, res) => {
         res.status(500).json({
             errors: [{
                 value: `${err.message}`,
-                msg: 'Erro ao obter a listagem dos politicos',
+                msg: 'Erro ao obter a listagem dos políticos.',
                 param: '/'
             }]
         })

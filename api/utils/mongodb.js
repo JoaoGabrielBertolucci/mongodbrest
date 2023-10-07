@@ -6,8 +6,6 @@ config() // carrega as variáveis definidas no .env
 
 const { MONGODB_URL, MONGODB_DB } = process.env
 
-
-
 if (!MONGODB_URL) {
     throw new Error(
         'Por favor, defina a variável de ambiente MONGODB_URL dentro do arquivo .env'

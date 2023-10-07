@@ -7,6 +7,8 @@ app.use(express.json())
 
 app.use('/', express.static('public'))
 
+app.use('/favicon.icon', express.static('public/images/brasil.png'))
+
 app.get('/api', (req, res) => {
     res.status(200).json({
         message:'Uau! API 100% funcional.',

@@ -1,4 +1,4 @@
-use ('Congresso')
+use ('Politicos')
 
 db.Politicos.insertOne({
     "Nome": "José Silva",
@@ -6,5 +6,5 @@ db.Politicos.insertOne({
     "Cargo": "Deputado Federal",
     "Data_Filiação": "2020-01-15",
     "Valor_Ajuda_Mensal": 5000,
-    "NúmeroUrna": 12345
+    "NumeroUrna": 12345
   });

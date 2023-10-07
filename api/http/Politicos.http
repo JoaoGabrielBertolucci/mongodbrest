@@ -1,0 +1,6 @@
+// Teste das Requisições REST dos prestadores
+@baseURL = http://localhost:4000/api/Politicos
+
+// GET - Lista todos os registros
+GET {{baseURL}}
+Content-Type: application/json

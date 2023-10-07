@@ -4,13 +4,13 @@ const { MongoClient, ObjectId } = mongodb
 import { config } from 'dotenv'
 config() // carrega as variáveis definidas no .env
 
-const { MONGODB_URI, MONGODB_DB } = process.env
+const { MONGODB_URL, MONGODB_DB } = process.env
 
 
 
-if (!MONGODB_URI) {
+if (!MONGODB_URL) {
     throw new Error(
-        'Por favor, defina a variável de ambiente MONGODB_URI dentro do arquivo .env'
+        'Por favor, defina a variável de ambiente MONGODB_URL dentro do arquivo .env'
     )
 }
 
@@ -37,7 +37,7 @@ export async function connectToDatabase() {
             useUnifiedTopology: true,
         }
 
-        cached.promise = MongoClient.connect(MONGODB_URI, opts).then((client) => {
+        cached.promise = MongoClient.connect(MONGODB_URL, opts).then((client) => {
             return {
                 client,
                 db: client.db(MONGODB_DB),
@@ -55,4 +55,4 @@ export async function connectToDatabase() {
     return cached.conn
 }
 
-export { MONGODB_DB, MONGODB_URI }
+export { MONGODB_DB, MONGODB_URL }

@@ -1,9 +1,9 @@
 import express from 'express';
-import { connectToDatabase} from '../utils/mongodb';
+import { connectToDatabase} from '../utils/mongodb.js';
 
 const router = express.Router()
 const {db, ObjectId} = await connectToDatabase()
-const nomeCollection = 'Políticos'
+const nomeCollection = 'Politicos'
 
 
 router.get('/', async(req, res) => {
@@ -18,7 +18,7 @@ router.get('/', async(req, res) => {
         res.status(500).json({
             errors: [{
                 value: `${err.message}`,
-                msg: 'Erro ao obter a listagem dos prestadores',
+                msg: 'Erro ao obter a listagem dos politicos',
                 param: '/'
             }]
         })

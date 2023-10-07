@@ -11,7 +11,7 @@ import rotasPoliticos from './routes/Politicos.js'
 
 app.use('/favicon.icon', express.static('public/images/brasil.png'))
 
-app.get('/api/Politicos', rotasPoliticos)
+app.use('/api/Politicos', rotasPoliticos)
 
 app.get('/api', (req, res) => {
     res.status(200).json({

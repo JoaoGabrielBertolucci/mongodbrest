@@ -8,7 +8,7 @@ const nomeCollection = 'Politicos'
 
 router.get('/', async(req, res) => {
     try{
-        db.collection(nomeCollection).find().sort({Nome: 1})
+        db.collection(nomeCollection).find().sort({nome: 1})
         .toArray((err, docs)=> {
             if(!err){
                 res.status(200).json(docs)

@@ -9,7 +9,7 @@ app.use('/', express.static('public'))
 
 import rotasPoliticos from './routes/Politicos.js'
 
-app.use('/favicon.icon', express.static('public/images/brasil.png'))
+app.use('/favicon.icon', express.static('public/images/brazil.png'))
 
 app.use('/api/Politicos', rotasPoliticos)
 

@@ -4,3 +4,18 @@
 // GET - Lista todos os registros
 GET {{baseURL}}
 Content-Type: application/json
+
+
+###
+// POST - Insere uma nova bebida
+POST {{baseURL}}
+Content-Type: application/json
+
+{
+    "nome": "José Penis",
+    "partido": "Partido A",
+    "cargo": "Deputado Federal",
+    "data_filiação": "2020-01-15",
+    "valor_ajuda_mensal": 5000,
+    "numeroUrna": 12345
+}

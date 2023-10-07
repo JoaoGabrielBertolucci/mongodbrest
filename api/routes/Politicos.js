@@ -25,4 +25,19 @@ router.get('/', async(req, res) => {
     }
 })
 
+router.post('/', async(req, res) => {
+    
+    if (!errors.isEmpty()){
+        return res.status(400).json(({
+            errors: errors.array()
+        }))
+    } else {
+        await db.collection(nomeCollection)
+        .insertOne(req.body)
+        .then(result => res.status(200).send(result))
+        .catch(err => res.status(400).json(err))
+    }
+});
+
+
 export default router

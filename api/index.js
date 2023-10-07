@@ -7,7 +7,11 @@ app.use(express.json())
 
 app.use('/', express.static('public'))
 
+import rotasPolíticos from './routes/Políticos.js'
+
 app.use('/favicon.icon', express.static('public/images/brasil.png'))
+
+app.get('/api/Políticos', rotasPolíticos)
 
 app.get('/api', (req, res) => {
     res.status(200).json({

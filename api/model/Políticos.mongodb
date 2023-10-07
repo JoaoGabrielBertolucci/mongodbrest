@@ -1,0 +1,10 @@
+use ('Congresso')
+
+db.Politicos.insertOne({
+    "Nome": "José Silva",
+    "Partido": "Partido A",
+    "Cargo": "Deputado Federal",
+    "Data_Filiação": "2020-01-15",
+    "Valor_Ajuda_Mensal": 5000,
+    "NúmeroUrna": 12345
+  });

@@ -7,10 +7,39 @@ Content-Type: application/json
 
 ###
 // GET - Lista um político pelo id
-GET {{baseURL}}/id/654fab55695988a59fc129be
+GET {{baseURL}}/id/654fdb98261a4855068fa8e1
 Content-Type: application/json
 
 ###
 // DELETE - Apaga um político pelo id
-DELETE {{baseURL}}/654fab55695988a59fc129be
+DELETE {{baseURL}}/654fe124ae3013e8edbbf3dd
 Content-Type: application/json
+
+###
+// POST - Insere um novo registro
+POST {{baseURL}}
+Content-Type: application/json
+
+{
+    "nome": "Luigi Inácio Silva",
+    "partido": "Partido T",
+    "cargo": "Presidente",
+    "data_filiação": "2023-01-01",
+    "valor_ajuda_mensal": 50000,
+    "numerourna": 12
+}
+
+###
+// PUT - Altera o registro
+PUT {{baseURL}}
+Content-Type: application/json
+
+{
+    "_id": "654fdb98261a4855068fa8e1",
+    "nome": "Jairton Médici",
+    "partido": "Partido X",
+    "cargo": "Deputado Federal",
+    "data_filiação": "2020-01-15",
+    "valor_ajuda_mensal": 5000,
+    "numerourna": 12345
+}

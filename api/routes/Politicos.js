@@ -3,7 +3,7 @@ import { connectToDatabase} from '../utils/mongodb.js';
 
 const router = express.Router()
 const {db, ObjectId} = await connectToDatabase()
-const nomeCollection = 'Politicos'
+const nomeCollection = 'politicos'
 
 
 router.get('/', async(req, res) => {
@@ -38,6 +38,5 @@ router.post('/', async(req, res) => {
         .catch(err => res.status(400).json(err))
     }
 });
-
 
 export default router

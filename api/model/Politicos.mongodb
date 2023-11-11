@@ -1,7 +1,7 @@
-use ('prjMongoDB')
+use('prjMongoDB')
 
-db.Politicos.insertOne({
-  "nome": "José Penis",
+db.politicos.insertOne({
+  "nome": "José Silva",
   "partido": "Partido A",
   "cargo": "Deputado Federal",
   "data_filiação": "2020-01-15",

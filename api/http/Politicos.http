@@ -1,18 +1,17 @@
-// Teste das Requisições REST dos prestadores
-@baseURL = http://localhost:4000/api/Politicos
+// Teste das Requisições REST dos políticos
+@baseURL = http://localhost:4000/api/politicos
 
 // GET - Lista todos os registros
 GET {{baseURL}}
 Content-Type: application/json
 
-
 ###
-// POST - Insere uma nova bebida
+// POST - Insere um novo politico
 POST {{baseURL}}
 Content-Type: application/json
 
 {
-    "nome": "José Penis",
+    "nome": "José Silva",
     "partido": "Partido A",
     "cargo": "Deputado Federal",
     "data_filiação": "2020-01-15",

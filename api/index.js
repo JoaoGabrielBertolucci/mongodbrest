@@ -3,14 +3,17 @@ import  express  from "express";
 const app = express()
 const port = 4000
 
-app.use(express.json())
-
-app.use('/', express.static('public'))
-
+// import das rotas da app 
 import rotasPoliticos from './routes/politicos.js'
 
+app.use(express.json()) // irá fazer o parse de arquivos JSON
+// rotas de conteúdo público
+app.use('/', express.static('public'))
+
+//configura o favicon
 app.use('/favicon.icon', express.static('public/images/brazil.png'))
 
+// rotas da api
 app.use('/api/politicos', rotasPoliticos)
 
 app.get('/api', (req, res) => {

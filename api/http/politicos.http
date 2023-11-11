@@ -1,20 +1,16 @@
 // Teste das Requisições REST dos políticos
 @baseURL = http://localhost:4000/api/politicos
 
-// GET - Lista todos os registros
+// GET - Lista todos os políticos
 GET {{baseURL}}
 Content-Type: application/json
 
 ###
-// POST - Insere um novo politico
-POST {{baseURL}}
+// GET - Lista um político pelo id
+GET {{baseURL}}/id/654fab55695988a59fc129be
 Content-Type: application/json
 
-{
-    "nome": "José Silva",
-    "partido": "Partido A",
-    "cargo": "Deputado Federal",
-    "data_filiação": "2020-01-15",
-    "valor_ajuda_mensal": 5000,
-    "numeroUrna": 12345
-}
+###
+// DELETE - Apaga um político pelo id
+DELETE {{baseURL}}/654fab55695988a59fc129be
+Content-Type: application/json

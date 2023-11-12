@@ -1,5 +1,4 @@
 use('prjMongoDB')
-
 db.politicos.insertOne({
   "nome": "José Silva",
   "partido": "Partido A",

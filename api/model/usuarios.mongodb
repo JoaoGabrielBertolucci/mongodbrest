@@ -1,0 +1,15 @@
+use('prjMongoDB')
+db.usuarios.insertOne({
+    'nome': 'Laís Carvalho',
+    'email' : 'lais.carvalho@gmail.com',
+    'senha' : 'lais123',
+    'ativo': true,
+    'tipo': 'Gestor',
+    'avatar': 'https://ui-avatars.com/api/?name=Laís+Carvalho&background=0D8ABC&color=fff'      
+})
+
+use('prjMongoDB')
+db.usuarios.createIndex({'email':1},{unique:true})
+
+use('prjMongoDB')
+db.usuarios.find({},{senha:0})

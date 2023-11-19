@@ -1,13 +1,13 @@
-// Teste das Requisições REST dos usuarios
-@baseURL = http://localhost:4000/api/politicos
+// Teste do endpoint usuários
+@baseURL = http://localhost:4000/api/usuarios
 ###
 POST {{baseURL}}
 Content-Type: application/json
 
 {
-    "nome": "José Alves Silva",
-    "email": "aluno@fatecitu.edu.br",
-    "senha": "Alun0@"
+    "nome": "Erick Rosa Simão",
+    "email": "erick.rosa@gmail.com",
+    "senha": "Erick.2023"
 }
 
 
@@ -17,33 +17,33 @@ POST {{baseURL}}/login
 Content-Type: application/json
 
 {
-    "email": "aluno@fatecitu.edu.br",
-    "senha": "Alun0@"
+    "email": "erick.rosa@gmail.com",
+    "senha": "Erick.2023"
 }
 
 ###
 // GET - Obtem os usuários
-GET {{baseURL}}/id/654fdb98261a4855068fa8e1
+GET {{baseURL}}
 Content-Type: application/json
-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjUzNjdhNDAzNjJlNDg4M2NjOGUyOWMwIn0sImlhdCI6MTY5ODA2OTA1OSwiZXhwIjoxNjk4MzI4MjU5fQ.cLtXR2sCCdocxUISVG7WyX7_Sh8uYCZjKghlVg3YMi8
+access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjU1OTRlYTE5NDc0ZGM1MmMzOTllMWRiIn0sImlhdCI6MTcwMDM1NTE2NiwiZXhwIjoxNzAxMDc1MTY2fQ.iXokHe8PlAOze7JoIbFVsojmMn99UeVNsICXxhFgiKg
 
 ###
 // DELETE - Remove o usuário pelo id
-DELETE {{baseURL}}/id/654fdb98261a4855068fa8e1
+DELETE {{baseURL}}/6551114e37ea6b38e124ea55
 Content-Type: application/json
-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjUzNjdhNDAzNjJlNDg4M2NjOGUyOWMwIn0sImlhdCI6MTY5ODA2OTA1OSwiZXhwIjoxNjk4MzI4MjU5fQ.cLtXR2sCCdocxUISVG7WyX7_Sh8uYCZjKghlVg3YMi8
+access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjU1OTRlYTE5NDc0ZGM1MmMzOTllMWRiIn0sImlhdCI6MTcwMDM1NTE2NiwiZXhwIjoxNzAxMDc1MTY2fQ.iXokHe8PlAOze7JoIbFVsojmMn99UeVNsICXxhFgiKg
 
 ###
 // PUT - Edita o usuário pelo id
-PUT {{baseURL}}/id/654fdb98261a4855068fa8e1
+PUT {{baseURL}}/6551114e37ea6b38e124ea55
 Content-Type: application/json
-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjUzNjdhNDAzNjJlNDg4M2NjOGUyOWMwIn0sImlhdCI6MTY5ODA2OTA1OSwiZXhwIjoxNjk4MzI4MjU5fQ.cLtXR2sCCdocxUISVG7WyX7_Sh8uYCZjKghlVg3YMi8
+access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjU1OTRlYTE5NDc0ZGM1MmMzOTllMWRiIn0sImlhdCI6MTcwMDM1NTE2NiwiZXhwIjoxNzAxMDc1MTY2fQ.iXokHe8PlAOze7JoIbFVsojmMn99UeVNsICXxhFgiKg
 
 {   
-    "nome": "José Alves Silva ALTERADO",
-    "email": "ze2@uol.com.br",
+    "nome": "Laís Carvalho",
+    "email": "lais.mesquita@gmail.com",
     "ativo": true,
-    "tipo": "Cliente",
-    "senha": "Alun0@",
-    "avatar": "https://ui-avatars.com/api/?name=José+Alves+Silva&background=F00&color=00F"
+    "tipo": "Gestor",
+    "senha": "Laís.2023",
+    "avatar": "https://ui-avatars.com/api/?name=Laís+Carvalho&background=F00&color=00F"
 }

@@ -44,13 +44,12 @@ const validaUsuario = [
         .default(true)
         .isBoolean().withMessage('O valor deve ser um booleano. True ou False'),
     check('tipo')
-        .default('Cliente')
-        .isIn(['Admin', 'Cliente']).withMessage('O tipo do usuário deve ser Admin ou Cliente'),
+        .default('Gestor'),
     check('avatar')
         .optional({ nullable: true }) // permitir usuário sem avatar 
         .isURL().withMessage('O endereço do Avatar deve ser uma URL válida')
 ]
-//Post de usuário
+//POST de usuário
 router.post('/', validaUsuario, async (req, res) => {
     const schemaErrors = validationResult(req)
     if (!schemaErrors.isEmpty()) {
@@ -59,7 +58,7 @@ router.post('/', validaUsuario, async (req, res) => {
         }))
     } else {
         //definindo o avatar default
-        req.body.avatar = `https://ui-avatars.com/api/?name=${req.body.nome.replace(/ /g, '+')}&background=F00&color=00F`
+        req.body.avatar = `https://ui-avatars.com/api/?name=${req.body.nome.replace(/ /g, '+')}&background=0D8ABC&color=fff`
         //criptografia da senha
         //genSalt => impede que 2 senhas iguais tenham resultados iguais
         const salt = await bcrypt.genSalt(10)

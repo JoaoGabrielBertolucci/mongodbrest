@@ -4,16 +4,19 @@
 // GET - Lista todos os políticos
 GET {{baseURL}}
 Content-Type: application/json
+access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjU1OTRlYTE5NDc0ZGM1MmMzOTllMWRiIn0sImlhdCI6MTcwMDM1NTE2NiwiZXhwIjoxNzAxMDc1MTY2fQ.iXokHe8PlAOze7JoIbFVsojmMn99UeVNsICXxhFgiKg
 
 ###
 // GET - Lista um político pelo id
 GET {{baseURL}}/id/654fdb98261a4855068fa8e1
 Content-Type: application/json
+access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjU1OTRlYTE5NDc0ZGM1MmMzOTllMWRiIn0sImlhdCI6MTcwMDM1NTE2NiwiZXhwIjoxNzAxMDc1MTY2fQ.iXokHe8PlAOze7JoIbFVsojmMn99UeVNsICXxhFgiKg
 
 ###
 // DELETE - Apaga um político pelo id
 DELETE {{baseURL}}/654fe124ae3013e8edbbf3dd
 Content-Type: application/json
+access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjU1OTRlYTE5NDc0ZGM1MmMzOTllMWRiIn0sImlhdCI6MTcwMDM1NTE2NiwiZXhwIjoxNzAxMDc1MTY2fQ.iXokHe8PlAOze7JoIbFVsojmMn99UeVNsICXxhFgiKg
 
 ###
 // POST - Insere um novo registro

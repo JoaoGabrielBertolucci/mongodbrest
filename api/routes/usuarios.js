@@ -77,11 +77,11 @@ router.post('/', validaUsuario, async (req, res) => {
  ************************************************************/
 const validaLogin = [
     check('email')
-        .not().isEmpty().trim().withMessage('O email é obrigatório!')
+        .not().isEmpty().trim().withMessage('O e-mail é obrigatório!')
         .isEmail().withMessage('Informe um e-mail válido'),
     check('senha')
         .not().isEmpty().trim().withMessage('A senha é obrigatória!')
-        .isLength({ min: 6 }).withMessage('A senha deve ter no mínimo 6 carac.')
+        .isLength({ min: 6 }).withMessage('A senha deve ter no mínimo 6 caracteres.')
 ]
 
 router.post('/login', validaLogin, async (req, res) => {

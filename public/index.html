@@ -1,37 +1,75 @@
-<!doctype html>
-<html lang="pt-br">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Mongo Politica</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
-    <div class="row text-bg-success align-items-lg-start p-2">
-        <div class="col text-bg-warning p-3">
-            <h2 style="font-family: Arial">
-                Políticos RESTantes
-            </h2>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Área Restrita</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+  crossorigin="anonymous"></script>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/brazil_flag_icon_228666.ico"/>
+</head>
+<body>
+	<section class="h-100">
+		<div class="container h-100">
+			<div class="row justify-content-sm-center h-100">
+				<div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
+					<div class="text-center my-5">
+						<img src="images/user-svgrepo-com.svg" alt="logo" width="100">
+					</div>
+					<div class="card shadow-lg">
+						<div class="card-body p-5">
+							<h1 class="fs-4 card-title fw-bold mb-4">Área Restrita</h1>
+							<form id="loginForm">
+								<div class="mb-3">
+									<label class="mb-2 text-muted" for="login">E-mail do usuário</label>
+									<input type="text" class="form-control" id="login" name="login" autofocus autocomplete="email">
+								</div>
+								<div class="mb-3">
+									<div class="mb-2 w-100">
+										<label class="text-muted" for="senha">Senha de acesso</label>
+									</div>
+                  <input type="password" class="form-control" id="senha" name="senha">
+								</div>
+                <div class="d-flex align-items-center mt-3">
+                  <button type="submit" class="btn btn-primary w-100">
+                      Login
+                  </button>
+              </div>              
+							</form>
+						</div>
+						<div class="card-footer py-3 border-0">
+							<div class="text-center">
+                Ainda não é usuário? <a href="usuario.html">Cadastre-se!</a>
+							</div>
+						</div>
+					</div>
+					<div class="text-center mt-5 text-muted">
+						Copyright &copy; 2023 &mdash; João Gabriel & Josué Carvalho
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+  <!-- Modal -->
+  <div class="modal fade" id="modalMensagem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">ℹ Mensagem</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+         <div class="modal-body">
+           <p id="mensagem"></p>
+        </div>
+        <div class="modal-footer">
+           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        </div>
+      </div>
     </div>
-
-  </head>
-  
-  
-  <body class="text-md-center " style="background-color: yellow;">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-        
-          <p> 
-
-            <img  src="data:image/png;base64,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" alt="">
-            <br>
-
-            <h2> 
-              conheça os políticos da história 
-              <br> <a href="/api/politicos" class="btn btn-primary btn-lg">Saiba mais</a>
-            </h2>
-
-          </p>
-
-  </body>
-
+   </div>
+	<script src="js/login.js"></script>
+</body>
 </html>

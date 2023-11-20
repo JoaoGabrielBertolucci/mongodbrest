@@ -30,5 +30,5 @@ document.getElementById('formPolítico').addEventListener('submit', function (ev
             "data_filiação": document.getElementById('inicio').value
         }
     }
-    salvaPrestador(politico)
+    salvaPolitico(politico)
 })

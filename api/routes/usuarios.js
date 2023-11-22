@@ -66,7 +66,12 @@ router.post('/', validaUsuario, async (req, res) => {
         //iremos salvar o registro
         await db.collection(nomeCollection)
             .insertOne(req.body)
-            .then(result => res.status(201).send(result))
+            .then(result => {
+                // Adicione a mensagem de sucesso à resposta
+                result.message = "Cadastro realizado com sucesso!";
+                // Envie a resposta com a mensagem
+                res.status(201).json(result);
+            })
             .catch(err => res.status(400).json(err))
     } //fecha o else 
 })

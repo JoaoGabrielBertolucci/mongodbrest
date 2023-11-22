@@ -34,7 +34,7 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
                 document.getElementById("mensagem").innerHTML = `<span class='text-danger'>${errorMessages}</span>`
                 resultadoModal.show();
             } else {
-                document.getElementById("mensagem").innerHTML = `<span class='text-danger'>Não foi possível efetuar o login. Verifique as suas credenciais</span>`
+                document.getElementById("mensagem").innerHTML = `<span class='text-danger'>Não foi possível efetuar o login. Verifique as suas credenciais.</span>`
                 resultadoModal.show();
             }
         })

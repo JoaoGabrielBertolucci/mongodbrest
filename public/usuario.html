@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
+  	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<meta name="description" content="This is a login page template based on Bootstrap 5">
 	<title>Cadastro</title>
@@ -23,9 +23,9 @@
 					<div class="card shadow-lg">
 						<div class="card-body p-5">
 							<h1 class="fs-4 card-title fw-bold mb-4">Registrar-se</h1>
-							<form id="registerForm" autocomplete="off">
+							<form id="registroForm" autocomplete="off">
 								<div class="mb-3">
-									<label class="mb-2 text-muted" for="name">Nome</label>
+									<label class="mb-2 text-muted" for="nome">Nome</label>
 									<input id="nome" type="text" class="form-control" name="nome" required autofocus>
 								</div>
 								<div class="mb-3">
@@ -33,11 +33,11 @@
 									<input id="email" type="email" class="form-control" name="email" required>
 								</div>
 								<div class="mb-3">
-									<label class="mb-2 text-muted" for="password">Senha de acesso</label>
+									<label class="mb-2 text-muted" for="senha">Senha de acesso</label>
 									<input id="senha" type="password" class="form-control" name="senha" required>
 								</div>
 								<div class="align-items-center d-flex">
-									<button type="submit" class="btn btn-primary ms-auto">
+									<button type="submit" class="btn btn-primary w-100">
 										Registrar	
 									</button>
 								</div>
@@ -55,6 +55,24 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section>	
+	<!-- Modal -->
+	<div class="modal fade" id="modalMensagem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    	<div class="modal-dialog">
+      		<div class="modal-content">
+         		<div class="modal-header">
+          			<h1 class="modal-title fs-5" id="exampleModalLabel">ℹ Mensagem</h1>
+          			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        		</div>
+         		<div class="modal-body">
+           			<p id="mensagem"></p>
+        		</div>
+        		<div class="modal-footer">
+           			<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="fecharBotao">Fechar</button>
+        		</div>
+      		</div>
+    	</div>
+   </div>
+   <script src="js/usuario.js"></script>
 </body>
 </html>

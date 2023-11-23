@@ -105,7 +105,7 @@ router.post('/login', validaLogin, async (req, res) => {
             return res.status(404).json({
                 errors: [{
                     value: `${email}`,
-                    msg: 'O email informado não está cadastrado',
+                    msg: 'O e-mail informado não está cadastrado',
                     param: 'email'
                 }]
             })

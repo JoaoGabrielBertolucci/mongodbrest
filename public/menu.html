@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,45 +15,36 @@
     <!-- Favicon -->
     <link rel="icon" type="image/ico" href="images/brazil_flag_icon_228666.ico" />
 </head>
-
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">Fatec Itu</a>
+        <a class="navbar-brand" href="menu.html" style="margin-left: 16px;"><img src="images/brazil-svgrepo-com.svg" alt="logo" width="50"></a>
         <div class="navbar-collapse justify-content-between">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="usuario.html">Usuários</a>
+                    <a class="nav-link active" aria-current="page" href="menu.html" style="margin-left: 16px;">Menu Inicial</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="politicos.html">Politicos</a>
+                    <a class="nav-link" href="politicos.html" style="margin-left: 16px;">Políticos</a>
                 </li>
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item m-3">
-                    <a class="btn btn-danger" href="#">Logout</a>
+                    <button type="button" class="btn btn-outline-light" id="logoutBtn">Logout</button>
                 </li>
             </ul>
         </div>
     </nav>
-
     <!-- Menu Inicial -->
     <div class="container text-center">
         <h1 class="text-success mt-3">
-            <img src="images/brasil.png" class="img w-30 mx-auto mt-3"><br>
-            Seja bem vindo! 
+            Seja bem-vindo! 
         </h1>
-        <h3 class="text-primary"> Clique Aqui para fazer seu Login</h3>
-        <button class="btn-link" href ="usuario.html" >  Começar </button>
+        <h3 class="text-primary">Selecione a opção desejada no menu superior.</h3>
         <script src="js/validatoken.js"></script>
+    </div>
 
-      </div>
-
-    <footer class="bg-primary text-white text-center py-3 position-fixed fixed-bottom">
-        &copy; 2023 Fatec Itu. Todos os direitos reservados.
+    <footer class="text-muted text-center py-3 position-fixed fixed-bottom">
+        Copyright &copy; 2023 &mdash; João Gabriel & Josué Carvalho
     </footer>
-
-    
-
 </body>
-
 </html>

@@ -31,7 +31,7 @@ function parseJwt(token) {
 // Captura o botão "Logout" pelo ID
 const logoutBtn = document.getElementById("logoutBtn");
 // Adicione um ouvinte de eventos ao botão "Logout" para lidar com a ação de logout
-logoutBtn.LogarDeslogar("click", function () {
+logoutBtn.addEventListener("click", function () {
     // Remova o token do localStorage
     localStorage.removeItem("token");
 

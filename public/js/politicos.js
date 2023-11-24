@@ -9,6 +9,13 @@ document.getElementById('formPolítico').addEventListener('submit', function (ev
     const idPolitico = document.getElementById('id').value
     let politico = {}
 
+    // Dados do usuário para registro
+    const dadosRegistro = {
+        nome: nome,
+        email: email,
+        senha: senha
+    };
+
     if (idPolitico.length > 0) { //Se possuir o ID, enviamos junto com o objeto
         politico = {
             "_id": idPolitico,
@@ -31,4 +38,7 @@ document.getElementById('formPolítico').addEventListener('submit', function (ev
         }
     }
     salvaPolitico(politico)
+
+    
+
 })

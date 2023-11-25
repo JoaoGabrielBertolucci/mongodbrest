@@ -1,20 +1,14 @@
+
 //const urlBase = 'https://projeto.vercel.app/api'
 const urlBase = 'http://localhost:4000/api'
 const resultadoModal = new bootstrap.Modal(document.getElementById("modalMensagem"))
 const access_token = localStorage.getItem("token") || null
 
 //evento submit do formulário
-document.getElementById('formPolítico').addEventListener('submit', function (event) {
+document.getElementById('formPolitico').addEventListener('submit', function (event) {
     event.preventDefault() // evita o recarregamento
     const idPolitico = document.getElementById('id').value
     let politico = {}
-
-    // Dados do usuário para registro
-    const dadosRegistro = {
-        nome: nome,
-        email: email,
-        senha: senha
-    };
 
     if (idPolitico.length > 0) { //Se possuir o ID, enviamos junto com o objeto
         politico = {
@@ -38,10 +32,10 @@ document.getElementById('formPolítico').addEventListener('submit', function (ev
         }
     }
     salvaPolitico(politico)
-
+    async function salvaPolitico(politico) { 
     if (politico.hasOwnProperty('_id')) { //Se o politico tem o id iremos alterar os dados (PUT)
-        // Fazer a solicitação PUT para o endpoint dos politicoes
-        await fetch(`${urlBase}/politicoes`, {
+        // Fazer a solicitação PUT para o endpoint dos politicos
+        await fetch(`${urlBase}/politicos`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -55,9 +49,9 @@ document.getElementById('formPolítico').addEventListener('submit', function (ev
                 if (data.acknowledged) {
                     alert('✔ politico alterado com sucesso!')
                     //Limpar o formulário
-                    document.getElementById('formpolitico').reset()
+                    document.getElementById('formPolitico').reset()
                     //Atualiza a UI
-                    carregapoliticoes()
+                    carregaPoliticos()
                 } else if (data.errors) {
                     // Caso haja erros na resposta da API
                     const errorMessages = data.errors.map(error => error.msg).join("\n");
@@ -75,8 +69,8 @@ document.getElementById('formPolítico').addEventListener('submit', function (ev
             });
 
     } else { //caso não tenha o ID, iremos incluir (POST)
-        // Fazer a solicitação POST para o endpoint dos politicoes
-        await fetch(`${urlBase}/politicoes`, {
+        // Fazer a solicitação POST para o endpoint dos politicos
+        await fetch(`${urlBase}/politicos`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -90,9 +84,9 @@ document.getElementById('formPolítico').addEventListener('submit', function (ev
                 if (data.acknowledged) {
                     alert('✔ politico incluído com sucesso!')
                     //Limpar o formulário
-                    document.getElementById('formpolitico').reset()
+                    document.getElementById('formPolitico').reset()
                     //Atualiza a UI
-                    carregapoliticoes()
+                    carregaPoliticos()
                 } else if (data.errors) {
                     // Caso haja erros na resposta da API
                     const errorMessages = data.errors.map(error => error.msg).join("\n");
@@ -109,5 +103,52 @@ document.getElementById('formPolítico').addEventListener('submit', function (ev
                 resultadoModal.show();
             });
     }}
+
+    async function carregaPoliticos() {
+    
+        const tabela = document.getElementById('dadosTabela');
+        tabela.innerHTML = '';
+    
+        try {
+            let url = `${urlBase}/politicos`;
+    
+            console.log(url);
+    
+            const response = await fetch(url, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "access-token": access_token
+                }
+            });
+    
+            const data = await response.json();
+            console.log(url);
+            console.log("Resposta da API:", data);
+    
+            data.forEach(politico => {
+                tabela.innerHTML += `
+                    <tr>
+                        <td>${politico.nome}</td>
+                        <td>${politico.partido}</td>
+                        <td>${politico.cargo}</td>
+                        <td>${politico.numerourna}</td>                   
+                        <td>${politico.valor_ajuda_mensal}</td> 
+                        <td>${politico.data_filiação}</td> 
+                        <td>
+                            <button class='btn btn-danger btn-sm' onclick='removepolitico("${politico._id}")'>🗑 Excluir </button>
+                            <button class='btn btn-warning btn-sm' onclick='buscapoliticoPeloId("${politico._id}")'>📝 Editar </button>
+                        </td>           
+                    </tr>
+                `;
+            });
+        } catch (error) {
+            console.error(`Erro na chamada da API: ${error.message}`);
+            res.status(500).json({ 'error': error.message });
+            console.error('Erro ao carregar os politicos:', error.message);
+            document.getElementById("mensagem").innerHTML = `<span class='text-danger'>Erro ao carregar os politicos: ${error.message}</span>`;
+            resultadoModal.show();
+        }
+    }
 
 })

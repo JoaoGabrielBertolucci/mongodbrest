@@ -22,20 +22,22 @@ access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjU1O
 // POST - Insere um novo registro
 POST {{baseURL}}
 Content-Type: application/json
+access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjU1OTRlYTE5NDc0ZGM1MmMzOTllMWRiIn0sImlhdCI6MTcwMDM1NTE2NiwiZXhwIjoxNzAxMDc1MTY2fQ.iXokHe8PlAOze7JoIbFVsojmMn99UeVNsICXxhFgiKg
 
 {
-    "nome": "Luigi Inácio Silva",
-    "partido": "Partido T",
-    "cargo": "Presidente",
-    "data_filiação": "2023-01-01",
-    "valor_ajuda_mensal": 50000,
-    "numerourna": 12
+    "nome": "Carlota Vieira",
+    "partido": "Partido ITI",
+    "cargo": "Vereador",
+    "data_filiação": "2023-04-05",
+    "valor_ajuda_mensal": 1000,
+    "numerourna": 285
 }
 
 ###
 // PUT - Altera o registro
 PUT {{baseURL}}
 Content-Type: application/json
+access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjU1OTRlYTE5NDc0ZGM1MmMzOTllMWRiIn0sImlhdCI6MTcwMDM1NTE2NiwiZXhwIjoxNzAxMDc1MTY2fQ.iXokHe8PlAOze7JoIbFVsojmMn99UeVNsICXxhFgiKg
 
 {
     "_id": "654fdb98261a4855068fa8e1",

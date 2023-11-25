@@ -5,6 +5,8 @@ import { check, validationResult } from 'express-validator'
 const router = express.Router()
 const {db, ObjectId} = await connectToDatabase()
 const nomeCollection = 'politicos'
+//JWT
+import auth from '../middleware/auth.js'
 
 const validaPolitico = [
     check('nome')
@@ -20,6 +22,9 @@ const validaPolitico = [
     check('numerourna')
     .isNumeric().withMessage('O número da urna deve ser um número'),
 ]
+
+// Aplicar o middleware auth a todas as rotas relacionadas a políticos
+router.use(auth);
 
 /**
  * GET /api/politicos

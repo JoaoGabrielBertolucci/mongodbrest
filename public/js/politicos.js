@@ -39,6 +39,75 @@ document.getElementById('formPolítico').addEventListener('submit', function (ev
     }
     salvaPolitico(politico)
 
-    
+    if (politico.hasOwnProperty('_id')) { //Se o politico tem o id iremos alterar os dados (PUT)
+        // Fazer a solicitação PUT para o endpoint dos politicoes
+        await fetch(`${urlBase}/politicoes`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                "access-token": access_token //envia o token na requisição
+            },
+            body: JSON.stringify(politico)
+        })
+            .then(response => response.json())
+            .then(data => {
+                // Verificar se o token foi retornado        
+                if (data.acknowledged) {
+                    alert('✔ politico alterado com sucesso!')
+                    //Limpar o formulário
+                    document.getElementById('formpolitico').reset()
+                    //Atualiza a UI
+                    carregapoliticoes()
+                } else if (data.errors) {
+                    // Caso haja erros na resposta da API
+                    const errorMessages = data.errors.map(error => error.msg).join("\n");
+                    // alert("Falha no login:\n" + errorMessages);
+                    document.getElementById("mensagem").innerHTML = `<span class='text-danger'>${errorMessages}</span>`
+                    resultadoModal.show();
+                } else {
+                    document.getElementById("mensagem").innerHTML = `<span class='text-danger'>${JSON.stringify(data)}</span>`
+                    resultadoModal.show();
+                }
+            })
+            .catch(error => {
+                document.getElementById("mensagem").innerHTML = `<span class='text-danger'>Erro ao salvar o politico: ${error.message}</span>`
+                resultadoModal.show();
+            });
+
+    } else { //caso não tenha o ID, iremos incluir (POST)
+        // Fazer a solicitação POST para o endpoint dos politicoes
+        await fetch(`${urlBase}/politicoes`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "access-token": access_token //envia o token na requisição
+            },
+            body: JSON.stringify(politico)
+        })
+            .then(response => response.json())
+            .then(data => {
+                // Verificar se o token foi retornado        
+                if (data.acknowledged) {
+                    alert('✔ politico incluído com sucesso!')
+                    //Limpar o formulário
+                    document.getElementById('formpolitico').reset()
+                    //Atualiza a UI
+                    carregapoliticoes()
+                } else if (data.errors) {
+                    // Caso haja erros na resposta da API
+                    const errorMessages = data.errors.map(error => error.msg).join("\n");
+                    // alert("Falha no login:\n" + errorMessages);
+                    document.getElementById("mensagem").innerHTML = `<span class='text-danger'>${errorMessages}</span>`
+                    resultadoModal.show();
+                } else {
+                    document.getElementById("mensagem").innerHTML = `<span class='text-danger'>${JSON.stringify(data)}</span>`
+                    resultadoModal.show();
+                }
+            })
+            .catch(error => {
+                document.getElementById("mensagem").innerHTML = `<span class='text-danger'>Erro ao salvar o politico: ${error.message}</span>`
+                resultadoModal.show();
+            });
+    }}
 
 })

@@ -1,6 +1,8 @@
 import express from 'express';
 import { connectToDatabase} from '../utils/mongodb.js';
 import { check, validationResult } from 'express-validator'
+import validator from 'validator';
+
 
 const router = express.Router()
 const {db, ObjectId} = await connectToDatabase()
@@ -10,17 +12,28 @@ import auth from '../middleware/auth.js'
 
 const validaPolitico = [
     check('nome')
-    .not().isEmpty().trim().withMessage('É obrigatório informar o nome'),
+        .not().isEmpty().trim().withMessage('É obrigatório informar o nome.')
+        .isAlpha('pt-BR', { ignore: ' ' }).withMessage('Informe apenas texto no nome.'),
     check('partido')
-    .not().isEmpty().trim().withMessage('É obrigatório informar o partido'),
+        .not().isEmpty().trim().withMessage('É obrigatório informar o partido.'),
     check('cargo')
-    .not().isEmpty().trim().withMessage('É obrigatório informar o cargo'),
-    check('data_filiação')
-    .not().isEmpty().trim().withMessage('É obrigatório informar a data de filiação'),
-    check('valor_ajuda_mensal')
-    .isNumeric().withMessage('O valor da ajuda mensal deve ser um número'),
+        .not().isEmpty().trim().withMessage('É obrigatório informar o cargo.')
+        .isAlpha('pt-BR', { ignore: ' ' }).withMessage('Informe apenas texto no cargo.'),
+        check('data_filiação')
+        .not().isEmpty().trim().withMessage('É obrigatório informar a data de filiação.'),
+        check('valor_ajuda_mensal')
+            .custom(value => {
+                // Remove caracteres não numéricos
+                const numericValue = parseFloat(value.replace(/[^0-9-]/g, ''));
+                // Verifica se o valor é um número não negativo
+                if (isNaN(numericValue) || numericValue < 0) {
+                    throw new Error('O valor da ajuda mensal deve ser um número não negativo.');
+                }
+                return true;
+            }),
     check('numerourna')
-    .isNumeric().withMessage('O número da urna deve ser um número'),
+        .isNumeric().withMessage('O número da urna deve ser um número.')
+        .isInt({ min: 1 }).withMessage('O número da urna não pode ser negativo ou igual a zero.'),
 ]
 
 // Aplicar o middleware auth a todas as rotas relacionadas a políticos

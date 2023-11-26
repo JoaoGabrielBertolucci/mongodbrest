@@ -15,14 +15,14 @@ import jwt from 'jsonwebtoken'
  * ***************************/
 const validaUsuario = [
     check('nome')
-        .not().isEmpty().trim().withMessage('É obrigatório informar o nome')
-        .isAlpha('pt-BR', { ignore: ' ' }).withMessage('Informe apenas texto no nome')
-        .isLength({ min: 3 }).withMessage('O nome do usuário deve ter ao menos 3 caracteres')
-        .isLength({ max: 100 }).withMessage('O nome do usuário deve ter no máximo 100 caracteres'),
+        .not().isEmpty().trim().withMessage('É obrigatório informar o nome.')
+        .isAlpha('pt-BR', { ignore: ' ' }).withMessage('Informe apenas texto no nome.')
+        .isLength({ min: 3 }).withMessage('O nome do usuário deve ter ao menos 3 caracteres.')
+        .isLength({ max: 100 }).withMessage('O nome do usuário deve ter no máximo 100 caracteres.'),
     check('email')
-        .not().isEmpty().trim().withMessage('O email é obrigatório')
-        .isLowercase().withMessage('O email não pode ter MAIÚSCULOS')
-        .isEmail().withMessage('O email deve ser válido')
+        .not().isEmpty().trim().withMessage('O e-mail é obrigatório.')
+        .isLowercase().withMessage('O e-mail não pode ter MAIÚSCULOS.')
+        .isEmail().withMessage('O e-mail deve ser válido.')
         .custom((value, { req }) => {
             return db.collection(nomeCollection).find({ email: { $eq: value } }).toArray()
                 .then((email) => {
@@ -33,21 +33,21 @@ const validaUsuario = [
                 })
         }),
     check('senha')
-        .not().isEmpty().trim().withMessage('A senha é obrigatória')
-        .isLength({ min: 6 }).withMessage('A senha deve ter no mínimo 6 caracteres')
+        .not().isEmpty().trim().withMessage('A senha é obrigatória.')
+        .isLength({ min: 6 }).withMessage('A senha deve ter no mínimo 6 caracteres.')
         .isStrongPassword({
             minLength: 6,
             minLowercase: 1, minUppercase: 1,
             minSymbols: 1, minNumbers: 1
-        }).withMessage('A senha informada não é segura. Informe no mínimo 1 caractere maiúsculo, 1 caractere minúsculo, 1 número e 1 caractere especial'),
+        }).withMessage('A senha informada não é segura. Informe no mínimo 1 caractere maiúsculo, 1 caractere minúsculo, 1 número e 1 caractere especial.'),
     check('ativo')
         .default(true)
-        .isBoolean().withMessage('O valor deve ser um booleano. True ou False'),
+        .isBoolean().withMessage('O valor deve ser um booleano. True ou False.'),
     check('tipo')
         .default('Gestor'),
     check('avatar')
         .optional({ nullable: true }) // permitir usuário sem avatar 
-        .isURL().withMessage('O endereço do Avatar deve ser uma URL válida')
+        .isURL().withMessage('O endereço do Avatar deve ser uma URL válida.')
 ]
 //POST de usuário
 router.post('/', validaUsuario, async (req, res) => {

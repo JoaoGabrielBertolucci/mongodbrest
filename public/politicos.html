@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +14,7 @@
   <!-- Favicon -->
   <link rel="icon" type="image/ico" href="images/brazil_flag_icon_228666.ico"/>
 </head>
-<body onload="carregapoliticos()">
+<body onload="carregaPoliticos()">
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <a class="navbar-brand" href="menu.html" style="margin-left: 16px;"><img src="images/brazil-svgrepo-com.svg" alt="logo" width="50"></a>
     <div class="navbar-collapse justify-content-between">
@@ -38,7 +37,7 @@
     <div class="row h-100" style="padding-top: 16px">
       <div class="col-md-6">
         <!-- Formulário -->
-        <form id="formpoliticos" method="post">
+        <form id="formPolitico">
           <h4 class="text-success mt-3";>Cadastro</h4>
           <hr class="border border-success border-1 opacity-75">
           <!-- Id --> 
@@ -59,21 +58,19 @@
           </div>          
           <div class="mb-3 row">
             <div class="col-md-6">
-              <label for="inicio" class="form-label text-muted">Data filiação</label>
-              <input type="date" class="form-control" id="data_filiação" name="inicio"  required>
+              <label for="inicio" class="form-label text-muted">Data de filiação</label>
+              <input type="date" class="form-control" id="data_filiação" name="data_filiação">
             </div> 
             <div class="col-md-6">
               <label class="form-label text-muted">Valor ajuda mensal</label><br>
               <div class="input-group mb-3">
-                  <span class="input-group-text">R$</span>
-                  <input type="text" id="valor_ajuda_mensal" class="form-control" aria-label="Amount (to the nearest dollar)">
-                  <span class="input-group-text">.00</span>
+                  <input type="text" id="valor_ajuda_mensal" class="form-control" placeholder="R$ 0,00">
               </div>
             </div>
           </div>
           <div class="mb-3 row align-items-end">
             <div class="col-md-6">
-              <label class="form-label text-muted">Número urna</label>
+              <label class="form-label text-muted">Número da urna</label>
               <input type="number" class="form-control" id="numerourna" name="urna" placeholder="Ex.: 45"/>
             </div>
             <!-- Botões-->
@@ -99,9 +96,10 @@
               <th>Nome</th>
               <th>Partido</th>
               <th>Cargo</th>
-              <th>Data filiação</th>              
-              <th>Valor ajuda mensal</th>
-              <th>Número urna</th>
+              <th>Data de filiação</th>              
+              <th>Valor ajuda mensal (R$)</th>
+              <th>Número da urna</th>
+              <th style="text-align: center;">Ações</th>
             </tr>
           </thead>
           <tbody id="dadosTabela"></tbody>
@@ -109,24 +107,50 @@
       </div>
     </div>
   </div>
-      <!-- Modal -->
-      <div class="modal fade" id="modalMensagem" tabindex="-1" role="dialog">
-        <div class="modal-dialog bg-danger" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title text-danger">Mensagem</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-                </div>
-                <div class="modal-body">
-                    <p id="mensagem"></p>
-                </div>
-            </div>
+  <!-- Modal -->
+  <div class="modal fade" id="modalMensagem" tabindex="-1" role="dialog">
+    <div class="modal-dialog bg-danger" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title text-danger">Mensagem</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+          </div>
+          <div class="modal-body">
+              <p id="mensagem"></p>
+          </div>
         </div>
     </div>
-<footer class="text-muted text-center py-3 position-fixed fixed-bottom">
-  Copyright &copy; 2023 &mdash; João Gabriel & Josué Carvalho
-</footer>
-<script src="js/validatoken.js"></script>
-<script src="js/politicos.js"></script>
+  </div>
+  <footer class="text-muted text-center py-3 position-fixed fixed-bottom">
+    Copyright &copy; 2023 &mdash; João Gabriel & Josué Carvalho
+  </footer>
+  <script src="js/politicos.js"></script>
+  <script src="js/validatoken.js"></script>
+  <!-- Formtação: Data filiação -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  
+  <!-- Formtação: Valor ajuda mensal -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+  <script>
+    // Adiciona máscara ao campo valor_ajuda_mensal
+    $(document).ready(function () {
+        $('#valor_ajuda_mensal').inputmask('currency', {
+            alias: 'numeric',
+            radixPoint: ',',
+            groupSeparator: '.',
+            autoGroup: true,
+            digits: 2,
+            digitsOptional: false,
+            prefix: 'R$ ',
+            placeholder: '0',
+            rightAlign: false,
+            onBeforeMask: function (value) {
+                // Tratamento adicional se necessário
+                return value;
+            }
+        });
+    });
+  </script>
 </body>
 </html>

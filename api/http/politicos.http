@@ -29,7 +29,7 @@ access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjU1O
     "partido": "Partido ITI",
     "cargo": "Vereador",
     "data_filiação": "2023-04-05",
-    "valor_ajuda_mensal": 1000,
+    "valor_ajuda_mensal": "R$ 1.000,00",
     "numerourna": 285
 }
 
@@ -45,6 +45,6 @@ access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjU1O
     "partido": "Partido X",
     "cargo": "Deputado Federal",
     "data_filiação": "2020-01-15",
-    "valor_ajuda_mensal": 5000,
+    "valor_ajuda_mensal": "R$ 5.000,00",
     "numerourna": 12345
 }

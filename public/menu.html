@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <!-- Favicon -->
     <link rel="icon" type="image/ico" href="images/brazil_flag_icon_228666.ico"/>
+    <style>.avatarUsuarioLog { border-radius: 20%; }</style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -29,17 +30,18 @@
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item m-3">
-                    <button type="button" class="btn btn-outline-light" id="logoutBtn">Logout</button>
+                    <button type="button" class="btn btn-outline-light" id="logoutBtn"><i class="bi bi-door-open"></i> Logout</button>
                 </li>
             </ul>
         </div>
     </nav>
     <!-- Menu Inicial -->
     <div class="container text-center">
-        <h1 class="text-success mt-3">
-            Seja bem-vindo! 
+        <div id="avatarUsuarioLog" style="margin-top: 64px;"></div>
+        <h1 class="text-primary mt-3">
+            Seja bem-vindo(a), <span class="text-success" id="nomeUsuarioLog"></span>
         </h1>
-        <h3 class="text-primary">Selecione a opção desejada no menu superior.</h3>
+        <h3 class="text-secondary">Selecione a opção desejada no menu superior.</h3>
     </div>
     <footer class="text-muted text-center py-3 position-fixed fixed-bottom">
         Copyright &copy; 2023 &mdash; João Gabriel & Josué Carvalho

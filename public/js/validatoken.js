@@ -11,6 +11,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (tokenData && tokenData.exp && tokenData.exp * 1000 > Date.now()) {
             // Token não expirou, permita o acesso à página de menu
+
+            // Utiliza decodeURIComponent ao exibir o nome
+            const userNameElement = document.getElementById("nomeUsuarioLog");
+            if (userNameElement) {
+                userNameElement.textContent = `${decodeURIComponent(tokenData.usuario.nome)}!`;
+            }
+            const userAvatarElement = document.getElementById("avatarUsuarioLog");
+            if (userAvatarElement) {
+                // Tag de imagem
+                const avatarImage = document.createElement("img");
+                // Atributo src com a URL do avatar
+                avatarImage.src = decodeURIComponent(tokenData.usuario.avatar);
+                // Classe para bordas arredondadas
+                avatarImage.classList.add("avatarUsuarioLog");
+                // Tag de imagem ao elemento com o ID "avatarUsuarioLog"
+                userAvatarElement.appendChild(avatarImage);
+            }
         } else {
             // Token expirou, redirecione para a página de login
             window.location.href = "index.html";

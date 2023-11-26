@@ -121,13 +121,18 @@ router.post('/login', validaLogin, async (req, res) => {
             })
         //Iremos gerar o token JWT
         jwt.sign(
-            { usuario: { id: usuario[0]._id } },
+            { usuario: { id: usuario[0]._id, nome: encodeURIComponent(usuario[0].nome), avatar: encodeURIComponent(usuario[0].avatar)} },
             process.env.SECRET_KEY,
             { expiresIn: process.env.EXPIRES_IN },
             (err, token) => {
                 if (err) throw err
                 res.status(200).json({
-                    access_token: token
+                    access_token: token,
+                    user: {
+                        id: usuario[0]._id,
+                        nome: usuario[0].nome,
+                        avatar: usuario[0].avatar
+                    }
                 })
             }
         )

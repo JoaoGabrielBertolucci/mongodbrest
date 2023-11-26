@@ -28,17 +28,17 @@
         </ul>
         <ul class="navbar-nav">
             <li class="nav-item m-3">
-                <button type="button" class="btn btn-outline-light" id="logoutBtn">Logout</button>
+                <button type="button" class="btn btn-outline-light" id="logoutBtn"><i class="bi bi-door-open"></i> Logout</button>
             </li>
         </ul>
     </div>
   </nav>
   <div class="container">
-    <div class="row h-100" style="padding-top: 16px">
+    <div class="row mt-3">
       <div class="col-md-6">
         <!-- Formulário -->
         <form id="formPolitico">
-          <h4 class="text-success mt-3";>Cadastro</h4>
+          <h4 class="text-success mt-3">Cadastro</h4>
           <hr class="border border-success border-1 opacity-75">
           <!-- Id --> 
           <input type="hidden" id="id" name="id"/>
@@ -85,7 +85,10 @@
           </div>
         </form>
       </div>
-    </div>
+      <!-- Imagem -->
+      <div class="col-md-6 my-4">
+        <img src="./images/job-search.png" class="img-fluid mx-auto d-block" style="max-width: 100%; max-height: 300px; margin-top: 34px;" alt="Imagem de busca de emprego" alt="Imagem de busca de emprego">
+      </div>
     <div class="row mb-5">
       <div class="col-md-12">
         <h4 class="text-success mt-3">Cadastros existentes</h4>
@@ -97,7 +100,7 @@
               <th>Partido</th>
               <th>Cargo</th>
               <th>Data de filiação</th>              
-              <th>Valor ajuda mensal (R$)</th>
+              <th>Valor ajuda mensal</th>
               <th>Número da urna</th>
               <th style="text-align: center;">Ações</th>
             </tr>

@@ -1,4 +1,4 @@
-const urlBase = 'https://backend-mongodb-pi.vercel.app/api'
+const urlBase = 'https://mongodbrest.vercel.app/api'
 //const urlBase = 'http://localhost:4000/api'
 document.getElementById("loginForm").addEventListener("submit", function (event) {
     event.preventDefault()
